@@ -1,0 +1,11 @@
+version: '2'
+services:
+  service-token:
+    build: .
+    ports:
+      - '10001:3030'
+      - '10002:5858'
+    tty: true
+    volumes:
+      - './app:/app'
+    container_name: service-token

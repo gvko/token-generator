@@ -1,0 +1,19 @@
+{
+  "name": "service-token",
+  "version": "1.0.0",
+  "description": "An app to serve an admin panel for generating JWT tokens for different environments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galioy/service-token.git"
+  },
+  "author": "Galin Kostov <gako@esmiley.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galioy/service-token/issues"
+  },
+  "homepage": "https://github.com/galioy/service-token#readme"
+}
