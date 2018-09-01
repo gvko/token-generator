@@ -10,6 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/galioy/service-token.git"
   },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2"
+  },
+  "devDependencies": {
+  },
   "author": "Galin Kostov <gako@esmiley.dk>",
   "license": "ISC",
   "bugs": {
