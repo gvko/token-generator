@@ -4,7 +4,10 @@
   "description": "Interface for administering JWT tokens.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon-start": "nodemon service.js",
+    "start": "node service.js",
+    "start-dev": "docker-compose up frontend-token"
   },
   "keywords": [
     "jwt",
@@ -14,6 +17,9 @@
   ],
   "author": "Martin Kyukov and Galin Kostov",
   "license": "ISC",
+  "dependencies": {
+    "express": "~4.16.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
@@ -21,6 +27,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.1",
-    "jshint": "^2.9.6"
+    "jshint": "^2.9.6",
+    "nodemon": "^1.18.4"
   }
 }

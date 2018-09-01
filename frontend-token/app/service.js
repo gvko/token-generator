@@ -6,9 +6,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 80;
 
-const etcdImporter = require('commons-config-node').etcdImporter;
-
-app.use(express.static('dist'));
+app.use(express.static('app'));
 
 app.get('/ping', (req, res) => {
   res.status(418);
@@ -31,9 +29,6 @@ app.get('/status', (req, res) => {
   res.set('Content-Type', 'application/json');
   res.send({
     'status': 'running',
-    'tag': process.env.BUILD_TAG,
-    'hash': process.env.BUILD_HASH,
-    'branch': process.env.BUILD_BRANCH,
     'hostname': process.env.HOSTNAME,
     'service': 'frontend-server',
     'nodeEnv': process.env.NODE_ENV,
@@ -43,13 +38,8 @@ app.get('/status', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve('./dist/index.html'));
+  res.sendFile(path.resolve('./index.html'));
 });
-
-/*
- * Load the environment variables from Etcd into local env vars
- */
-etcdImporter();
 
 app.listen(port, () => {
   console.log('Server started on port:', port);

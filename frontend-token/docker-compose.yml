@@ -1,0 +1,12 @@
+version: '2'
+services:
+  frontend-token:
+    build: .
+    ports:
+      - '10011:80'
+      - '10012:5858'
+    tty: true
+    volumes:
+      - './app:/app'
+    command: 'npm run nodemon-start'
+    container_name: frontend-token
