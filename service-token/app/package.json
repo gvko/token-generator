@@ -4,7 +4,9 @@
   "description": "An app to serve an admin panel for generating JWT tokens for different environments",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon-start": "nodemon app.js",
+    "start": "docker-compose up service-token"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
     "http-errors": "~1.6.2"
   },
   "devDependencies": {
+    "nodemon": "^1.18.4"
   },
   "author": "Galin Kostov <gako@esmiley.dk>",
   "license": "ISC",
