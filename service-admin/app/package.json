@@ -1,0 +1,42 @@
+{
+  "name": "service-admin",
+  "version": "1.0.0",
+  "description": "An app to serve an admin panel for administration tasks (JWT generation, CI/CD, etc.)",
+  "main": "src/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon-start": "nodemon index.js",
+    "start": "docker-compose up service-admin"
+  },
+  "dependencies": {
+    "@feathersjs/configuration": "^2.0.2",
+    "@feathersjs/errors": "^3.3.2",
+    "@feathersjs/express": "^1.2.5",
+    "@feathersjs/feathers": "^3.2.1",
+    "@feathersjs/socketio": "^3.2.4",
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
+    "helmet": "^3.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galioy/token-generator.git"
+  },
+  "engines": {
+    "node": "^8.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "author": "Galin Kostov <gako@esmiley.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galioy/token-generator/issues"
+  },
+  "homepage": "https://github.com/galioy/token-generator#readme"
+}
