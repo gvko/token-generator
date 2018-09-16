@@ -1,0 +1,12 @@
+'use strict';
+
+const jwt = require('jsonwebtoken');
+
+function generate(payload, options, environment) {
+  options.expiresIn = `${options.expiresIn}h`;
+  return jwt.sign(payload, 'secret-key', options);
+}
+
+module.exports = {
+  generate
+};

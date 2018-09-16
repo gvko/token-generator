@@ -1,6 +1,6 @@
 version: '2'
 services:
-  service-token:
+  service-admin:
     build: .
     ports:
       - '7100:3000'
@@ -9,7 +9,7 @@ services:
     volumes:
       - './app:/app'
     command: 'npm run nodemon-start'
-    container_name: service-token
+    container_name: service-admin
     environment:
       - EXPOSED_PORT=7100
       - PORT=3000

@@ -1,22 +1,23 @@
 {
-  "name": "service-token",
+  "name": "service-admin",
   "version": "1.0.0",
   "description": "An app to serve an admin panel for generating JWT tokens for different environments",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "nodemon-start": "nodemon app.js",
-    "start": "docker-compose up service-token"
+    "start": "docker-compose up service-admin"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/galioy/service-token.git"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "express": "~4.16.0",
-    "http-errors": "~1.6.2"
+    "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.3.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
