@@ -1,5 +1,5 @@
 {
-  "name": "service-token",
+  "name": "service-admin",
   "version": "1.0.0",
   "description": "An app to serve an admin panel for generating JWT tokens for different environments",
   "main": "index.js",
