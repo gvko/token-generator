@@ -9,7 +9,8 @@ const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 
 const middleware = require('./middleware');
-const services = require('./services');
+import services from './services';
+
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
 
