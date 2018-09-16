@@ -31,12 +31,15 @@ new Vue({
                 environment: this.selectedEnvironment
             }
             
-            Vue.axios.post(Config.api_endpoint+'/token', payload).then((response) => {
-                console.log(response.data);
-                this.generatedToken = resonse.data;
+            // Vue.axios.post(Config.api_endpoint+'/token', payload).then((response) => {
+            //     console.log(response.data);
+            //     this.generatedToken = resonse.data;
+            // });
+            
+            Vue.axios.get('https://geek-jokes.sameerkumar.website/api').then((response) => {
+                this.generatedToken = response.data;
             });
-
-            this.generatedToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.BrM-t5lxrLj32ityJDeUoAgwLN1G63pUj60JUn_E4qo';
+            
             
         },
         copyToken: function() {

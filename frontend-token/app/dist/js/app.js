@@ -49,14 +49,15 @@ new _vue2.default({
                 customerId: this.customerId,
                 exp: _config2.default.exp,
                 environment: this.selectedEnvironment
-            };
 
-            _vue2.default.axios.post(_config2.default.api_endpoint + '/token', payload).then(function (response) {
-                console.log(response.data);
-                _this.generatedToken = resonse.data;
+                // Vue.axios.post(Config.api_endpoint+'/token', payload).then((response) => {
+                //     console.log(response.data);
+                //     this.generatedToken = resonse.data;
+                // });
+
+            };_vue2.default.axios.get('https://geek-jokes.sameerkumar.website/api').then(function (response) {
+                _this.generatedToken = response.data;
             });
-
-            this.generatedToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.BrM-t5lxrLj32ityJDeUoAgwLN1G63pUj60JUn_E4qo';
         },
         copyToken: function copyToken() {
             var copyText = document.getElementById("token");
