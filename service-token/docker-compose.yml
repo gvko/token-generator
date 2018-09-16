@@ -3,9 +3,13 @@ services:
   service-token:
     build: .
     ports:
-      - '10001:3030'
-      - '10002:5858'
+      - '7100:3000'
+      - '7101:5858'
     tty: true
     volumes:
       - './app:/app'
+    command: 'npm run nodemon-start'
     container_name: service-token
+    environment:
+      - EXPOSED_PORT=7100
+      - PORT=3000
