@@ -8,7 +8,7 @@ Vue.use(VueAxios, Axios);
 new Vue({
     el: '#app',
     data: {
-        selectedEnvironment: null,
+        selectedEnvironment: Config.environments[0].value,
         generatedToken: null,
         showCopiedMsg: false,
         hideCopiendMsgTimeout: null,

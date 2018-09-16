@@ -38,7 +38,7 @@
                     <div class="col">
                         <p class="form-group"> 
                             <label for="expiration">Expiration (hours)</label>
-                            <input type="text" name="expiration" class="form-control" v-model="expirationInHours">
+                            <input type="number" name="expiration" class="form-control" v-model="expirationInHours">
                             <div class="expiration-shortcuts">
                                 <div class="expiration-shortcuts__option" 
                                     v-for="option in expirationOptionsInDays"
@@ -58,7 +58,7 @@
                                 <option v-for="env in environments" v-bind:value="env.value">{{env.name}}</option>
                             </select>
                         </p>
-                        <transition name="fade" v-if="selectedEnvironment && userId && customerId">
+                        <transition name="fade" v-if="selectedEnvironment && userId && customerId && expirationInHours">
                             <div class="row">
                                 <div class="col">
                                         <button class="button btn btn-sm" v-on:click="generateToken">

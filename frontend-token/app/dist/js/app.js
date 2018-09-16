@@ -26,7 +26,7 @@ _vue2.default.use(_vueAxios2.default, _axios2.default);
 new _vue2.default({
     el: '#app',
     data: {
-        selectedEnvironment: null,
+        selectedEnvironment: _config2.default.environments[0].value,
         generatedToken: null,
         showCopiedMsg: false,
         hideCopiendMsgTimeout: null,
