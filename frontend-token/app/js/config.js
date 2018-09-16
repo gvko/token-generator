@@ -1,6 +1,6 @@
 export default {
     // Where the api is hosted
-    api_endpoint: 'http://localhost:80',
+    api_endpoint: 'http://localhost:7100',
     // Audience
     aud: 'https://www.esmiley.dk/',
     environments:[

@@ -12,8 +12,9 @@ const app = express();
 const port = process.env.PORT || '3000';
 
 app.use(bodyParser.json())
-  .use(bodyParser.urlencoded({ extended: true }))
+  .options('*', cors())
   .use(cors())
+  .use(bodyParser.urlencoded({ extended: true }))
   /*
    * Routes
    */
