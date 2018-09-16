@@ -1,10 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Test</title>
-</head>
-<body>
-<h1>Test</h1>
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Token administration</title>
+        <link rel="stylesheet" href="dist/css/main.css">
+        <link rel="icon" href="img/favicon.ico">
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="container">
+                <br>
+                <h1>
+                    JWT Token
+                </h1>
+                <hr>
+               
+                <div class="row">
+                    <div class="col">
+                        <p class="form-group">
+                            <label for="userId">User ID</label>
+                            <input name="userId" type="text" class="form-control" v-model="userId">
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p class="form-group">
+                            <label for="customerId">Customer ID</label>
+                            <input name="customerId" type="text" class="form-control" v-model="customerId">
+                        </p>  
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col">
+                        <p class="form-group"> 
+                            <label for="expiration">Expiration (hours)</label>
+                            <input type="text" name="expiration" class="form-control" v-model="expirationInHours">
+                            <div class="expiration-shortcuts">
+                                <div class="expiration-shortcuts__option" 
+                                    v-for="option in expirationOptionsInDays"
+                                    v-on:click="setExpirationInFromDays(option)">
+                                    
+                                        {{option}} 
+                                        <span v-if="option != 1">days</span>
+                                        <span v-if="option == 1">day</span>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p class="form-group"> 
+                            <label for="environment">Environment</label>
+                            <select placeholder="Environment" name="environment" class="env-dropdown form-control" v-model="selectedEnvironment" aria-labelledby="dropdownMenuButton">
+                                <option v-for="env in environments" v-bind:value="env.value">{{env.name}}</option>
+                            </select>
+                        </p>
+                        <transition name="fade" v-if="selectedEnvironment && userId && customerId">
+                            <div class="row">
+                                <div class="col">
+                                        <button class="button btn btn-sm" v-on:click="generateToken">
+                                            Generate
+                                        </button>
+                                        
+                                </div>
+                            </div>
+                        </transition>
+                    </div>
+                </div>
+                <transition name="fade">
+                    <div v-if="generatedToken" class="text-center">
+                        <br>
+                        <span id="token" style="color:green">{{generatedToken}}</span>
+                        <br>
+                        <span class="copy-button" v-on:click="copyToken()"></span>
+                        <br>
+                        <transition name="fade">
+                            <span id="copied-msg" v-if="showCopiedMsg">Copied!</span>
+                        </transition>
+                    </div>
+                    
+                </transition>
+            </div>          
+              
+        </div>
+        <script src="dist/js/app.js"></script>
+    </body>
+
 </html>
