@@ -31,14 +31,14 @@ new Vue({
                 environment: this.selectedEnvironment
             }
             
-            // Vue.axios.post(Config.api_endpoint+'/token', payload).then((response) => {
-            //     console.log(response.data);
-            //     this.generatedToken = resonse.data;
-            // });
-            
-            Vue.axios.get('https://geek-jokes.sameerkumar.website/api').then((response) => {
-                this.generatedToken = response.data;
+            Vue.axios.post(Config.api_endpoint+'/token', payload).then((response) => {
+                console.log(response.data);
+                this.generatedToken = resonse.data;
             });
+            
+            // Vue.axios.get('https://geek-jokes.sameerkumar.website/api').then((response) => {
+            //     this.generatedToken = response.data;
+            // });
             
             
         },

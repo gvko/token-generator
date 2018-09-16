@@ -49,15 +49,16 @@ new _vue2.default({
                 customerId: this.customerId,
                 exp: _config2.default.exp,
                 environment: this.selectedEnvironment
+            };
 
-                // Vue.axios.post(Config.api_endpoint+'/token', payload).then((response) => {
-                //     console.log(response.data);
-                //     this.generatedToken = resonse.data;
-                // });
-
-            };_vue2.default.axios.get('https://geek-jokes.sameerkumar.website/api').then(function (response) {
-                _this.generatedToken = response.data;
+            _vue2.default.axios.post(_config2.default.api_endpoint + '/token', payload).then(function (response) {
+                console.log(response.data);
+                _this.generatedToken = resonse.data;
             });
+
+            // Vue.axios.get('https://geek-jokes.sameerkumar.website/api').then((response) => {
+            //     this.generatedToken = response.data;
+            // });
         },
         copyToken: function copyToken() {
             var copyText = document.getElementById("token");
