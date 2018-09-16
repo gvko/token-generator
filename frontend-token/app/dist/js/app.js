@@ -18,95 +18,91 @@ var _vueAxios = require('vue-axios');
 var _vueAxios2 = _interopRequireDefault(_vueAxios);
 
 function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
+  return obj && obj.__esModule ? obj : { default: obj };
 }
 
 _vue2.default.use(_vueAxios2.default, _axios2.default);
 
 new _vue2.default({
-    el: '#app',
-    data: {
-        selectedEnvironment: _config2.default.environments[0].value,
-        generatedToken: null,
-        showCopiedMsg: false,
-        hideCopiendMsgTimeout: null,
-        userId: "",
-        customerId: "",
-        expirationOptionsInDays: [1, 2, 7, 30, 365],
-        expirationInHours: null
-    },
-    computed: {
-        environments: function environments() {
-            return _config2.default.environments;
-        }
-    },
-    methods: {
-        generateToken: function generateToken() {
-            var _this = this;
-
-            var payload = {
-                userId: this.userId,
-                customerId: this.customerId,
-                exp: _config2.default.exp,
-                environment: this.selectedEnvironment
-            };
-
-            _vue2.default.axios.post(_config2.default.api_endpoint + '/token', payload).then(function (response) {
-                console.log(response.data);
-                _this.generatedToken = resonse.data;
-            });
-
-            // Vue.axios.get('https://geek-jokes.sameerkumar.website/api').then((response) => {
-            //     this.generatedToken = response.data;
-            // });
-        },
-        copyToken: function copyToken() {
-            var copyText = document.getElementById("token");
-            var textArea = document.createElement("textarea");
-            textArea.value = copyText.textContent;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("Copy");
-            textArea.remove();
-            this.showCopiedMsg = true;
-
-            if (!this.hideCopiendMsgTimeout) {
-
-                this.hideCopiendMsgTimeout = setTimeout(function () {
-                    this.showCopiedMsg = false;
-                    this.hideCopiendMsgTimeout = null;
-                }, 3000);
-            }
-        },
-        setExpirationInFromDays: function setExpirationInFromDays(days) {
-            this.expirationInHours = days * 24;
-        }
+  el: '#app',
+  data: {
+    selectedEnvironment: _config2.default.environments[0].value,
+    generatedToken: null,
+    showCopiedMsg: false,
+    hideCopiedMsgTimeout: null,
+    userId: "",
+    customerId: "",
+    expirationOptionsInDays: [1, 2, 7, 30, 365],
+    expirationInHours: null
+  },
+  computed: {
+    environments: function environments() {
+      return _config2.default.environments;
     }
+  },
+  methods: {
+    generateToken: async function generateToken() {
+      var payload = {
+        userId: this.userId,
+        customerId: this.customerId,
+        expirationInHours: this.expirationInHours,
+        environment: this.selectedEnvironment
+      };
+
+      var response = await _vue2.default.axios.post(_config2.default.api_endpoint + '/tokens', payload);
+      this.generatedToken = response.data;
+
+      // Vue.axios.get('https://geek-jokes.sameerkumar.website/api').then((response) => {
+      //     this.generatedToken = response.data;
+      // });
+    },
+    copyToken: function copyToken() {
+      var copyText = document.getElementById("token");
+      var textArea = document.createElement("textarea");
+      textArea.value = copyText.textContent;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("Copy");
+      textArea.remove();
+      this.showCopiedMsg = true;
+
+      if (!this.hideCopiedMsgTimeout) {
+
+        this.hideCopiendMsgTimeout = setTimeout(function () {
+          this.showCopiedMsg = false;
+          this.hideCopiedMsgTimeout = null;
+        }, 3000);
+      }
+    },
+    setExpirationInFromDays: function setExpirationInFromDays(days) {
+      this.expirationInHours = days * 24;
+    }
+  }
 });
 
 },{"./config.js":2,"axios":3,"vue":32,"vue-axios":31}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    // Where the api is hosted
-    api_endpoint: 'http://localhost:80',
-    // Audience
-    aud: 'https://www.esmiley.dk/',
-    environments: [{
-        name: 'Local',
-        value: 'local'
-    }, {
-        name: 'Staging',
-        value: 'staging'
-    }, {
-        name: 'Production',
-        value: 'production'
-    }],
-    // Issuer
-    iss: 'service-admin'
+  // Where the api is hosted
+  api_endpoint: 'http://localhost:7100',
+  // Audience
+  aud: 'https://www.esmiley.dk/',
+  environments: [{
+    name: 'Local',
+    value: 'local'
+  }, {
+    name: 'Staging',
+    value: 'staging'
+  }, {
+    name: 'Production',
+    value: 'production'
+  }],
+  // Issuer
+  iss: 'service-admin'
 };
 
 },{}],3:[function(require,module,exports){

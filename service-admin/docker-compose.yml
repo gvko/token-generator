@@ -4,11 +4,11 @@ services:
     build: .
     ports:
       - '7100:3000'
-      - '7101:5858'
+      - '17101:5858'
     tty: true
     volumes:
       - './app:/app'
-    command: 'npm run nodemon-start'
+    command: 'npm run gulp-start'
     container_name: service-admin
     environment:
       - EXPOSED_PORT=7100

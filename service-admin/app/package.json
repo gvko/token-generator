@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "nodemon-start": "nodemon app.js",
+    "gulp-start": "gulp start",
     "start": "docker-compose up service-admin"
   },
   "repository": {
@@ -20,6 +20,8 @@
     "jsonwebtoken": "^8.3.0"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
     "nodemon": "^1.18.4"
   },
   "author": "Galin Kostov <gako@esmiley.dk>",
